@@ -1,24 +1,13 @@
 
 # CTF Penetration Testing Checklist - Windows 7
-
-## 4 Phase หลัก
-
-## Information Gathering - การสแกนและค้นหาข้อมูลเป้าหมาย
-## Enumeration - การ enumerate บริการต่างๆ (SMB, RDP, HTTP, FTP, SQL)
-## Exploitation - การโจมตีช่องโหว่ที่พบ
-## Post-Exploitation - การยกระดับสิทธิ์และรักษาการเข้าถึง
-
-## ครอบคลุมช่องโหว่ยอดนิยมของ Windows 7: MS17-010 (EternalBlue), MS08-067, BlueKeep
-## มีตารางช่องโหว่พร้อม CVE และ exploit module
-## รวมคำสั่งสำหรับ Privilege Escalation หลายวิธี
-## เทคนิค Lateral Movement และ Persistence
-## คำสั่ง Reverse Shell และ File Transfer
-## ตำแหน่ง Flag ที่พบบ่อยใน CTF
-## Target: Windows 7 Machine
+1. Information Gathering - การสแกนและค้นหาข้อมูลเป้าหมาย
+2. Enumeration - การ enumerate บริการต่างๆ (SMB, RDP, HTTP, FTP, SQL)
+3. Exploitation - การโจมตีช่องโหว่ที่พบ
+4. Post-Exploitation - การยกระดับสิทธิ์และรักษาการเข้าถึง Privilege Escalation
 ---
 
-## Common Windows 7 Vulnerabilities
-
+## Common Windows 7 Vulnerabilities 
+- ครอบคลุมช่องโหว่ยอดนิยมของ Windows 7: MS17-010 (EternalBlue), MS08-067, BlueKeep
 | CVE | Name | Exploit |
 |-----|------|---------|
 | CVE-2017-0144 | MS17-010 (EternalBlue) | `exploit/windows/smb/ms17_010_eternalblue` |
