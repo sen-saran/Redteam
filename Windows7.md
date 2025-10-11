@@ -7,7 +7,6 @@
 ---
 
 ## Common Windows 7 Vulnerabilities 
-- ครอบคลุมช่องโหว่ยอดนิยมของ Windows 7: MS17-010 (EternalBlue), MS08-067, BlueKeep
 | CVE | Name | Exploit |
 |-----|------|---------|
 | CVE-2017-0144 | MS17-010 (EternalBlue) | `exploit/windows/smb/ms17_010_eternalblue` |
